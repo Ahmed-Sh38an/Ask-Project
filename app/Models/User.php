@@ -44,11 +44,11 @@ class User extends Authenticatable
 
     public function questionsReceived()
     {
-        return $this->hasMany(Question::class, 'recipient_id');
+        return $this->hasMany(Question::class, 'recipient_id')->whereHas('answer') ;
     }
 
-    // public function answers()
-    // {
-    //     return $this->hasMany(Answer::class);
-    // }
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
 }
