@@ -33,6 +33,10 @@ Route::get('{user:username}', function(User $user) {
     ]);
 });
 
+Route::get('/register', function () {
+    
+    return view('register');
+});
 
 
 // Route::get('{username}', function($username) {

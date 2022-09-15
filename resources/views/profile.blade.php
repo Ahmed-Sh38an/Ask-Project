@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/app.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Ask-fm</title>
@@ -27,15 +28,21 @@
                 <img src="/images/logo.png" alt="" width="80" class="py-2">
             </a>
         </div>
-        <div>
-            <a href="/{{$user->username}}">Profile</a>
+        <div class="border border-dark btn-dark rounded-pill text-white hovp">
+        <a href="/{{$user->username}}" class="text-white fw-bold text-decoration-none ">
+            <img src="https://i.pravatar.cc/40?u={{$user->id}}" alt="" class="rounded-circle  border-light">
+            <a href="/{{$user->username}}" class="text-white fw-bold text-decoration-none">{{$user->name}}
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor" class="bi bi-caret-down-fill me-1" viewBox="0 0 16 16">
+            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+            </svg>
+        </a>
         </div>
         </div>
     </nav>
     <div class="container mt-5" style="max-width: 900px;">
         <div class="d-md-flex">
             <div class="pe-4">
-                <img src="https://i.pravatar.cc/100" alt="" class="rounded-circle border-5 border border-light">
+                <img src="https://i.pravatar.cc/100?u={{$user->id}}" alt="" class="rounded-circle border-5 border border-light">
             </div>
             <div class="text-white">
                 <p class="text-muted fw-bold fs-6">{{'@' . $user->username}}</p>
