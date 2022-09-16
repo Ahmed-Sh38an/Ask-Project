@@ -1,9 +1,11 @@
 <?php
 
+use App\Models\User;
 use App\Models\Answer;
 use App\Models\Question;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AskController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,28 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function (User $user) {
-    
-    $user = User::take(15)->get();
-    return view('splash', [
-        'users' => $user
-    ]);
-});
+Route::get('/', [AskController::class, 'index']);
 
-Route::get('{user:username}', function(User $user) {
-    
-    
-    return view('profile', [
-        'user' => $user,
-        
-    ]);
-});
+Route::get('/register', [RegisterController::class, 'create']);
 
-Route::get('/register', function () {
-    
-    return view('register');
-});
+Route::post('/register', [RegisterController::class, 'store']);
 
+
+Route::get('{user:username}', [AskController::class, 'show']);
 
 // Route::get('{username}', function($username) {
 
