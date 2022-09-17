@@ -16,5 +16,5 @@
         -
         <a href="#" class="text-decoration-none mx-3 fs-6 text-dark">Support</a>
     </div>
-    <p class="pt-3">© Ask.fm 2022</p>
+    <p class="pt-3 mb-0">© Ask.fm 2022</p>
 </footer>
