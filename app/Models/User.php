@@ -45,6 +45,11 @@ class User extends Authenticatable
 
     public function questionsReceived()
     {
+        return $this->hasMany(Question::class, 'recipient_id')->whereDoesntHave('answer');
+    }
+
+    public function questionsAnswered()
+    {
         return $this->hasMany(Question::class, 'recipient_id')->whereHas('answer') ;
     }
 

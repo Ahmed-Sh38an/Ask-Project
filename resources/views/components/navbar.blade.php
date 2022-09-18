@@ -6,10 +6,11 @@
                 <img src="/images/logo.png" alt="" width="80" class="py-2">
             </a>
         </div>
+        @auth
         <div class="border border-dark btn-dark rounded-pill text-white hovp">
-            <a href="/{{$user->username}}" class="text-white fw-bold text-decoration-none ">
-                <img src="https://i.pravatar.cc/40?u={{$user->id}}" alt="" class="rounded-circle  border-light">
-                <a href="/{{$user->username}}" class="text-white fw-bold text-decoration-none">{{$user->name}}
+            <a href="/{{auth()->user()->username}}" class="text-white fw-bold text-decoration-none ">
+                <img src="https://i.pravatar.cc/40?u={{auth()->user()->id}}" alt="" class="rounded-circle  border-light">
+                <a href="/{{auth()->user()->username}}" class="text-white fw-bold text-decoration-none">{{auth()->user()->name}}
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                         class="bi bi-caret-down-fill me-1" viewBox="0 0 16 16">
                         <path
@@ -17,5 +18,12 @@
                     </svg>
                 </a>
         </div>
+        @endauth
+        @guest
+        <div>
+            <a href="/register" class="btn text-white border rounded-3 fw-bold fs-5 hovb mx-3">Sign Up</a>
+            <a href="/login" class="btn text-white border rounded-3 fw-bold fs-5 hovb">Log In</a>
+        </div>
+        @endguest
     </div>
 </nav>

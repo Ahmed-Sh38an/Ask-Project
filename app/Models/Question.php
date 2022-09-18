@@ -9,6 +9,7 @@ class Question extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
     // user hasmany questions asked, question belongsto one user
 
     public function recipient()

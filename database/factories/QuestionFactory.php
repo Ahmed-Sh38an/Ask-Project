@@ -20,7 +20,7 @@ class QuestionFactory extends Factory
     {
         return [
             'recipient_id' => User::factory(),
-            'title' => $this->faker->sentence(),
+            'question' => $this->faker->sentence(),
             
         ];
     }

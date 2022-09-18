@@ -17,7 +17,19 @@ class AskController extends Controller
 
     public function show(User $user)
     {
-        return view('profile', [
+        return view('profile.answers', [
+            'user' => $user,
+        ]);
+    }
+    public function questions(User $user)
+    {
+        return view('profile.questions', [
+            'user' => $user,
+        ]);
+    }
+    public function versus(User $user)
+    {
+        return view('profile.versus', [
             'user' => $user,
         ]);
     }

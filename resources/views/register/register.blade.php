@@ -35,7 +35,7 @@
             <label for="password" class="mt-2">Password:</label>
             <input type="password" name="password" id="password" required>
             @error('password')
-                <p>{{$message}}</p>
+                <p class="text-danger mb-0">{{$message}}</p>
             @enderror
 
             <label for="repassword" class="mt-2">Re-type Password:</label>
