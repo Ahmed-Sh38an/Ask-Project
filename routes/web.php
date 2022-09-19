@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnswerController;
 use App\Models\User;
 use App\Models\Answer;
 use App\Models\Question;
@@ -31,6 +32,7 @@ Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
 Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');
 
 Route::post('/question', [QuestionController::class, 'store']);
+Route::post('/answer', [AnswerController::class, 'store']);
 
 
 Route::get('{user:username}', [AskController::class, 'show']);
