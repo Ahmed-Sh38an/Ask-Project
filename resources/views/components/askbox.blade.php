@@ -12,7 +12,10 @@
     @enderror
     <div class="row">
         <div class="col-7 me-4 fw-bold">
-            <input type="checkbox" name="check" id="check">
+        @if (auth()->check())
+            <input type="text" value="{{auth()->user()->id}}" name="asker_id" hidden>
+        @endif
+            <input type="checkbox" name="asker_id" id="check" value="">
             <label for="check" class="text-white">Ask Anonymously</label>
         </div>
         <div class="col text-white">

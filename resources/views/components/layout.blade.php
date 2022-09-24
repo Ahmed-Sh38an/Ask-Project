@@ -17,7 +17,7 @@
 
     @if (session()->has('success'))
         <div class="d-flex fixed-bottom justify-content-end">
-            <p class="bg-primary mx-2 px-3 py-1 rounded-pill text-white">{{ session('success') }}</p>
+            <p class="bg-danger mx-2 px-3 py-1 rounded-pill text-white">{{ session('success') }}</p>
         </div>
     @endif
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

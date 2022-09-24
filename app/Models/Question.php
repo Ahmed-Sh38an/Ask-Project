@@ -17,6 +17,11 @@ class Question extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function asker()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function answer()
     {
         return $this->hasOne(Answer::class);

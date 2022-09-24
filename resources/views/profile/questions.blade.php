@@ -3,7 +3,7 @@
         <div class="bg-white rounded-3 p-3 pb-2 my-3">
             <p class="fw-bold">{{$question->question}}</p>
             <p class="text-muted">{{$question->created_at}}</p>
-            @if (isset(auth()->user()->id) == $question->recipient_id )
+            @if (auth()->check() && auth()->user()->id == $question->recipient_id )
             <form action="/answer" method="POST">
                 @csrf
                 <input type="text" value="{{$question->id}}" hidden id="question_id" name="question_id">
@@ -33,12 +33,11 @@
                                 d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
                         </svg>
                     </a>
-                    @if (isset(auth()->user()->id) == $question->recipient_id )
+                    @if (auth()->check() && auth()->user()->id == $question->recipient_id )
                     <button type="submit" class="btn text-white rounded-3 fw-bold btn-danger float-end mx-1">Answer</button>
+                    @endif
                 </p>
             </form>
-            @endif
-            
         </div>
     @endforeach
 </x-profile>
