@@ -33,4 +33,10 @@ class AskController extends Controller
             'user' => $user,
         ]);
     }
+    public function received(User $user)
+    {
+        return view('profile.received', [
+            'user' => $user,
+        ]);
+    }
 }

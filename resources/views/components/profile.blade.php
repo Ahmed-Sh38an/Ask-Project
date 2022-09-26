@@ -53,7 +53,6 @@
                         <a href="/{{$user->username}}" class="{{request()->is($user->username)? 'bg-white text-dark rounded-1 p-1 w-100' : 'p-1 rounded-1 text-white w-100'}}"
                             style="text-decoration: none;">Answers</a>
                         <a href="/{{$user->username}}/questions" class="{{request()->is($user->username . '/questions')? 'bg-white text-dark rounded-1 p-1 w-100' : 'p-1 rounded-1 text-white w-100'}}" style="text-decoration: none;">Questions</a>
-                        <a href="/{{$user->username}}/versus" class="{{request()->is($user->username . '/versus')? 'bg-white text-dark rounded-1 p-1 w-100' : 'p-1 rounded-1 text-white w-100'}}" style="text-decoration: none;">Versus</a>
                     </div>
 
                     {{$slot}}

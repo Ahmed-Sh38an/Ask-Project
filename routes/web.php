@@ -30,6 +30,7 @@ Route::post('/register', [RegisterController::class, 'store'])->middleware('gues
 Route::get('/login', [SessionController::class, 'create'])->middleware('guest');
 Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
 Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');
+Route::get('/logout', [SessionController::class, 'destroy'])->middleware('auth');
 
 Route::post('/question', [QuestionController::class, 'store']);
 Route::post('/answer', [AnswerController::class, 'store']);
@@ -37,6 +38,6 @@ Route::post('/answer', [AnswerController::class, 'store']);
 
 Route::get('{user:username}', [AskController::class, 'show']);
 Route::get('{user:username}/questions', [AskController::class, 'questions']);
-Route::get('{user:username}/versus', [AskController::class, 'versus']);
+Route::get('{user:username}/received', [AskController::class, 'received'])->middleware('auth');
 
 

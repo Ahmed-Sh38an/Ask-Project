@@ -14,8 +14,11 @@
         <div class="col-7 me-4 fw-bold">
         @if (auth()->check())
             <input type="text" value="{{auth()->user()->id}}" name="asker_id" hidden>
-        @endif
             <input type="checkbox" name="asker_id" id="check" value="">
+        @endif
+        @if (!auth()->check())
+        <input type="radio" id="check" checked>
+        @endif
             <label for="check" class="text-white">Ask Anonymously</label>
         </div>
         <div class="col text-white">

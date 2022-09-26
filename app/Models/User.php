@@ -45,18 +45,18 @@ class User extends Authenticatable
 
     public function questionsReceived()
     {
-        return $this->hasMany(Question::class, 'recipient_id')->whereDoesntHave('answer');
+        return $this->hasMany(Question::class, 'recipient_id')->orderByDesc('created_at')->whereDoesntHave('answer');
     }
 
     public function questionsAsked()
     {
-        return $this->hasMany(Question::class, 'asker_id');
+        return $this->hasMany(Question::class, 'asker_id')->orderByDesc('created_at')->whereHas('answer');
     }
 
     public function questionsAnswered()
     {
         $asker = User::find('asker_id');
-        return $this->hasMany(Question::class, 'recipient_id')->whereHas('answer') ;
+        return $this->hasMany(Question::class, 'recipient_id')->orderByDesc('created_at')->whereHas('answer') ;
     }
 
     public function answers()

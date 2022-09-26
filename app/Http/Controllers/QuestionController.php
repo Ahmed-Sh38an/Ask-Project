@@ -17,11 +17,14 @@ class QuestionController extends Controller
         ]);
 
         
-        if (auth()->user()->id == $attributes['asker_id']) {
+        if (auth()->check() && auth()->user()->id == $attributes['asker_id']) {
             Question::create($attributes);
-        }elseif ($attributes['asker_id'] == '') {
+        }elseif (auth()->check() && $attributes['asker_id'] == '') {
             Question::create($attributes);
-        }else {
+        }elseif (!auth()->check()) {
+            Question::create($attributes);
+        }
+        else {
             abort(401);
         }
         
