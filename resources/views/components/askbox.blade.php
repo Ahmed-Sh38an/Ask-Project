@@ -10,19 +10,19 @@
     @error('question')
         <p class="text-danger fw-bold">{{$message}}</p>
     @enderror
-    <div class="row">
-        <div class="col-7 me-4 fw-bold">
+    <div class="d-flex">
+        <div class="col-7 me-4 fw-bold form-check form-switch">
         @if (auth()->check())
             <input type="text" value="{{auth()->user()->id}}" name="asker_id" hidden>
-            <input type="checkbox" name="asker_id" id="check" value="">
+            <input class="form-check-input" type="checkbox" role="switch" name="asker_id" id="check" value="" checked>
         @endif
         @if (!auth()->check())
-        <input type="radio" id="check" checked>
+        <input class="form-check-input" type="checkbox" role="switch" id="check" checked disabled>
         @endif
-            <label for="check" class="text-white">Ask Anonymously</label>
+            <label class="form-check-label text-white" for="check">Ask Anonymously</label>
         </div>
-        <div class="col text-white">
-            <button type="submit" class="btn text-white rounded-3 fw-bold btn-danger px-5 ms-4">
+        <div class="mx-auto text-white">
+            <button type="submit" class="btn btn-danger fw-bold ms-3 px-5 rounded-3 text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-send" viewBox="0 0 16 16">
                     <path

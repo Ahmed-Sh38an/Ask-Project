@@ -4,7 +4,13 @@ body {
     background-attachment: fixed;
     background-size: 100% 100%;
 }
+.hovb {
+    color:#ee1144;
 
+}
 .hovb:hover {
-    background-color: #f7f7f728;
+    
+    background-color: #ee1144;
+    color: #FFFFFF;
+
 }

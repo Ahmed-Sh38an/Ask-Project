@@ -22,8 +22,8 @@
         @endauth
         @guest
         <div>
-            <a href="/register" class="btn text-white border rounded-3 fw-bold fs-5 hovb mx-3">Sign Up</a>
-            <a href="/login" class="btn text-white border rounded-3 fw-bold fs-5 hovb">Log In</a>
+            <a href="/register" class="btn fw-bold hovb mx-3 rounded-3">Sign Up</a>
+            <a href="/login" class="btn fw-bold hovb mx-3 rounded-3">Log In</a>
         </div>
         @endguest
     </div>
