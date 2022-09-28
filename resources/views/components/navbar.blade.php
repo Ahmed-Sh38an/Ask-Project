@@ -15,6 +15,7 @@
                 <button type="button" class="border border-dark btn-dark rounded-pill hovp dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"></button>
                 <ul class="dropdown-menu dropdown-menu-dark text-white">
                     <li><a class="dropdown-item text-white" href="/{{auth()->user()->username}}/received">Received Questions</a></li>
+                    <li><a class="dropdown-item text-white" href="/{{auth()->user()->username}}/edit">Edit Information</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item text-white" href="/logout">Log Out</a></li>
                 </ul>

@@ -1,11 +1,9 @@
 <?php
 
 use App\Http\Controllers\AnswerController;
-use App\Models\User;
-use App\Models\Answer;
-use App\Models\Question;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AskController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
@@ -36,8 +34,9 @@ Route::post('/question', [QuestionController::class, 'store']);
 Route::post('/answer', [AnswerController::class, 'store']);
 
 
-Route::get('{user:username}', [AskController::class, 'show']);
-Route::get('{user:username}/questions', [AskController::class, 'questions']);
-Route::get('{user:username}/received', [AskController::class, 'received'])->middleware('auth');
+Route::get('{user:username}', [ProfileController::class, 'show']);
+Route::get('{user:username}/questions', [ProfileController::class, 'questions']);
+Route::get('{user:username}/received', [ProfileController::class, 'received'])->middleware('auth');
+Route::get('{user:username}/edit', [ProfileController::class, 'edit'])->middleware('auth');
 
 

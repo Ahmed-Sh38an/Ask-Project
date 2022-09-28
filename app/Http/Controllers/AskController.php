@@ -15,28 +15,4 @@ class AskController extends Controller
         ]);
     }
 
-    public function show(User $user)
-    {
-        return view('profile.answers', [
-            'user' => $user,
-        ]);
-    }
-    public function questions(User $user)
-    {
-        return view('profile.questions', [
-            'user' => $user,
-        ]);
-    }
-    public function versus(User $user)
-    {
-        return view('profile.versus', [
-            'user' => $user,
-        ]);
-    }
-    public function received(User $user)
-    {
-        return view('profile.received', [
-            'user' => $user,
-        ]);
-    }
 }

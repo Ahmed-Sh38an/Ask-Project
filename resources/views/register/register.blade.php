@@ -8,7 +8,7 @@
                     style="width: 40%;"></a>
             <h1 class="text-white py-3 fs-2 fw-bold text-center">Ask. Chat. Repeat. Anonymously!</h1>
 
-            <form action="/register" method="post"
+            <form action="/register" method="post"  enctype="multipart/form-data"
             class="bg-gradient border d-flex flex-column fw-bold justify-content-center pb-3 px-4 rounded-3 text-white"
             >
             @csrf
@@ -42,7 +42,7 @@
             <input type="password" name="repassword" id="repassword" oninput="check(this)" required>
 
             <label for="photo" class="mt-2">Profile Picture: (Optional)</label>
-            <input type="file" name="photo" id="photo">
+            <input type="file" name="photo" id="photo" accept="image/*">
 
             <button type="submit" class="mt-3 btn btn-danger fw-bold">Register</button>
         </form>

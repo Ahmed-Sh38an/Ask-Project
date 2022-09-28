@@ -55,7 +55,6 @@ class User extends Authenticatable
 
     public function questionsAnswered()
     {
-        $asker = User::find('asker_id');
         return $this->hasMany(Question::class, 'recipient_id')->orderByDesc('created_at')->whereHas('answer') ;
     }
 
@@ -63,4 +62,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Answer::class);
     }
+
+    // public function postsCount()
+    // {
+    //     $total = $this->questionsAnswered()->count() + $this->questionsAsked()->count();
+                    
+    //     return $total;
+    // }
 }

@@ -70,7 +70,7 @@
             </div>
             <div class="mx-3 text-white">
 
-                <p class="fw-bold">3 <br> Posts</p>
+                <p class="fw-bold">3 <br> Posts </p>
             </div>
         </div>
         <div class="d-flex">

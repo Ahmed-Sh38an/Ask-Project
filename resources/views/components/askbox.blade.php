@@ -14,7 +14,7 @@
         <div class="col-7 me-4 fw-bold form-check form-switch">
         @if (auth()->check())
             <input type="text" value="{{auth()->user()->id}}" name="asker_id" hidden>
-            <input class="form-check-input" type="checkbox" role="switch" name="asker_id" id="check" value="" checked>
+            <input class="form-check-input" type="checkbox" role="switch" name="asker_id" id="check" value="">
         @endif
         @if (!auth()->check())
         <input class="form-check-input" type="checkbox" role="switch" id="check" checked disabled>
