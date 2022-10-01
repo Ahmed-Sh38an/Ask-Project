@@ -63,10 +63,10 @@ class User extends Authenticatable
         return $this->hasMany(Answer::class);
     }
 
-    // public function postsCount()
-    // {
-    //     $total = $this->questionsAnswered()->count() + $this->questionsAsked()->count();
+    public function postsCount()
+    {
+        $total = $this->questionsAnswered()->count() + $this->questionsAsked()->count();
                     
-    //     return $total;
-    // }
+        return $total;
+    }
 }

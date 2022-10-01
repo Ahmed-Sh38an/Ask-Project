@@ -3,7 +3,7 @@
     @foreach ($user->questionsReceived as $question)
         <div class="bg-white rounded-3 p-3 pb-2 my-3">
             <p class="fw-bold">{{$question->question}}</p>
-            <p class="text-muted">{{$question->created_at}}</p>
+            <p class="text-muted">{{$question->created_at}} @if ($question->asker_id) By <a href="/{{$question->asker->username}}" class="text-decoration-none text-dark">{{ucwords($question->asker->name)}}</a> @endif</p>
             <form action="/answer" method="POST">
                 @csrf
                 <input type="text" value="{{$question->id}}" hidden id="question_id" name="question_id">

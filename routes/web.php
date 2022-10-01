@@ -38,5 +38,6 @@ Route::get('{user:username}', [ProfileController::class, 'show']);
 Route::get('{user:username}/questions', [ProfileController::class, 'questions']);
 Route::get('{user:username}/received', [ProfileController::class, 'received'])->middleware('auth');
 Route::get('{user:username}/edit', [ProfileController::class, 'edit'])->middleware('auth');
+Route::patch('{user:username}/edit', [ProfileController::class, 'update'])->middleware('auth');
 
 

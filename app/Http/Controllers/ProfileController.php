@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
@@ -34,5 +35,26 @@ class ProfileController extends Controller
         return view('profile.edit', [
             'user' => $user
         ]);
+    }
+
+    public function update(User $user)
+    {
+        $attributes = request()->validate([
+            'name' => ['required', 'max:255'],
+            'username' => ['required', 'max:255', 'min:3', Rule::unique('users', 'username')->ignore($user->id)],
+            'about' => ['max:255'],
+            
+            'photo' => ['image'],
+        ]);
+
+        if (isset($attributes['photo'])) {
+
+            $attributes['photo'] = request()->file('photo')->store('photos');
+        }
+        
+        $user->update($attributes);
+        
+        $redirect = $attributes['username'];
+        return redirect($redirect);
     }
 }

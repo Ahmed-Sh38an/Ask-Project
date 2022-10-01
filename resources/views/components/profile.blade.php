@@ -12,14 +12,14 @@
         <div class="container mt-5" style="max-width: 900px;">
             <div class="d-md-flex">
                 <div class="pe-4">
-                    <img src="https://i.pravatar.cc/100?u={{$user->id}}" alt=""
-                        class="rounded-circle border-5 border border-light">
+                    <img src="{{asset('storage/' . $user->photo)}}" alt=""
+                        class="rounded-circle border-5 border border-light" style="width: 100px; height: 100px;">
                 </div>
                 <div class="text-white">
                     <p class="text-muted fw-bold fs-6">{{'@' . $user->username}}</p>
                     <h2 class="pb-3">{{$user->name}}</h2>
                     <div>
-                        <button class="btn text-white rounded-3 fw-bold btn-danger">Ask me anything</button>
+                        <label for="question" class="btn text-white rounded-3 fw-bold btn-danger">Ask me anything</label>
                         <button class="btn text-white rounded-3 fw-bold border mx-3">Follow</button>
                         <a href="#" class="text-muted">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" fill="currentColor"
@@ -70,7 +70,7 @@
             </div>
             <div class="mx-3 text-white">
 
-                <p class="fw-bold">3 <br> Posts </p>
+                <p class="fw-bold">{{$user->postsCount() }} <br> Posts</p>
             </div>
         </div>
         <div class="d-flex">
@@ -87,13 +87,8 @@
 
     </div>
     <h6 class="pt-5">About {{ucwords($user->name)}}:</h6>
-    <p class="fs-6 mx-4 my-3">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-            class="bi bi-file-person-fill" viewBox="0 0 16 16">
-            <path
-                d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm-3 4c2.623 0 4.146.826 5 1.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1.245C3.854 11.825 5.377 11 8 11z" />
-        </svg>
-        SC: dl_snap
+    <p class="fs-6 mx-4 my-3 fw-bold">
+        {{$user->about}}
     </p>
     <h6 class="pt-5">{{ucwords($user->name)}} photo gallery:</h6>
     <p class="text-muted mx-4 my-3">Nothing at the moment</p>

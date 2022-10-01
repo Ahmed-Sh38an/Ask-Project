@@ -21,10 +21,10 @@ class RegisterController extends Controller
             'username' => ['required', 'max:255', 'min:3', Rule::unique('users', 'username')],
             'email' => ['required', 'max:255', 'email',  Rule::unique('users', 'email')],
             'password' => ['required', 'max:255', 'min:7'],
-            
+            'photo' => ['image'],
         ]);
 
-        
+        $attributes['photo'] = request()->file('photo')->store('photos');
 
         $user = User::create($attributes);
 
