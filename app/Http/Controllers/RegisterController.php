@@ -24,7 +24,9 @@ class RegisterController extends Controller
             'photo' => ['image'],
         ]);
 
-        $attributes['photo'] = request()->file('photo')->store('photos');
+        if (isset($attributes['photo'])) {
+            $attributes['photo'] = request()->file('photo')->store('photos');
+        }
 
         $user = User::create($attributes);
 

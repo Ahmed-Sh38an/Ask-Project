@@ -16,7 +16,7 @@
             @method('PATCH')
                 <div class="d-md-flex">
                     <div class="me-2">
-                        <img src="{{asset('storage/' . $user->photo)}}" alt=""
+                        <img src="@if (isset($user->photo)) {{asset('storage/' . $user->photo)}} @else https://i.pravatar.cc/100?u={{$user->id}} @endif" alt=""
                             class="rounded-circle border-5 border border-light mb-3 ms-3" style="width: 100px; height: 100px;">
                         <p><input type="file" accept="image/*" name="photo" id="photo" value="{{old('photo', $user->photo)}}" hidden>
                             <label for="photo" class="btn btn-danger rounded-3">Change Photo <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-image-fill" viewBox="0 0 16 16">

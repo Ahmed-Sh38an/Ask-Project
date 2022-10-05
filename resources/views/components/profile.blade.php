@@ -12,7 +12,7 @@
         <div class="container mt-5" style="max-width: 900px;">
             <div class="d-md-flex">
                 <div class="pe-4">
-                    <img src="{{asset('storage/' . $user->photo)}}" alt=""
+                    <img src="@if (isset($user->photo)) {{asset('storage/' . $user->photo)}} @else https://i.pravatar.cc/100?u={{$user->id}} @endif" alt=""
                         class="rounded-circle border-5 border border-light" style="width: 100px; height: 100px;">
                 </div>
                 <div class="text-white">
@@ -40,7 +40,7 @@
                                 <a href="/" class="text-decoration-none text-white">Home</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                <a href="/me" class="text-decoration-none text-white">{{'@' . $user->username}}</a>
+                                <a href="/{{$user->username}}" class="text-decoration-none text-white">{{'@' . $user->username}}</a>
                             </li>
                             <li class="breadcrumb-item">
                                 <a href="#" class="text-decoration-none text-muted">Latest</a>
