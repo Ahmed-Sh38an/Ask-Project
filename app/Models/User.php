@@ -69,4 +69,8 @@ class User extends Authenticatable
                     
         return $total;
     }
+
+    public function like() {
+        return $this->hasMany(Like::class);
+    }
 }

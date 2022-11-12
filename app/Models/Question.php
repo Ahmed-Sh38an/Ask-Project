@@ -26,4 +26,8 @@ class Question extends Model
     {
         return $this->hasOne(Answer::class);
     }
+
+    public function like() {
+        return $this->hasMany(Like::class);
+    }
 }

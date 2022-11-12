@@ -23,3 +23,13 @@ body {
     margin-left: 4px;
     margin-right: -8px;
 }
+
+.btnn {
+    background: transparent;
+    border: none;
+    outline: none;
+    
+}
+.btnn :hover {
+    color: #ee1144;
+}

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnswerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AskController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\RegisterController;
@@ -32,6 +33,7 @@ Route::get('/logout', [SessionController::class, 'destroy'])->middleware('auth')
 
 Route::post('/question', [QuestionController::class, 'store']);
 Route::post('/answer', [AnswerController::class, 'store']);
+Route::post('{user:username}/questions/{id}/like', [LikeController::class, 'like'])->middleware('auth');
 
 
 Route::get('{user:username}', [ProfileController::class, 'show']);
@@ -39,5 +41,3 @@ Route::get('{user:username}/questions', [ProfileController::class, 'questions'])
 Route::get('{user:username}/received', [ProfileController::class, 'received'])->middleware('auth');
 Route::get('{user:username}/edit', [ProfileController::class, 'edit'])->middleware('auth');
 Route::patch('{user:username}/edit', [ProfileController::class, 'update'])->middleware('auth');
-
-
