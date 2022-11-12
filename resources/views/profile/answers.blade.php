@@ -67,6 +67,7 @@
                             } else {
                                 btnvar.style.color = "black"
                             }
+                            document.getElementById('like-count').innerHTML = `${result.likes} <br> Likes`
                         }
                     }
                     xmlhttp.open("POST", "{{$user->username}}/questions/{{$question->id}}/like");

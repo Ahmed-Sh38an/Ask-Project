@@ -69,8 +69,15 @@ class User extends Authenticatable
                     
         return $total;
     }
-
+    
     public function like() {
         return $this->hasMany(Like::class);
+    }
+
+    public function likesCount(User $user)
+    {
+        $profileQuestionsId = Question::where('recipient_id', '=', $user->id)->pluck('id');
+        $likeCount = Like::whereIn('question_id', $profileQuestionsId)->count();
+        return $likeCount;
     }
 }

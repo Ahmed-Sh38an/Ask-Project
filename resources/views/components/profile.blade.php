@@ -1,19 +1,18 @@
 <x-layout>
     <main>
         <style>
-        body {
-            background-image: url('/images/profilebg.jpg');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: 100% 100%;
-        }
+            body {
+                background-image: url('/images/profilebg.jpg');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+            }
         </style>
         <x-navbar :user="$user" />
         <div class="container mt-5" style="max-width: 900px;">
             <div class="d-md-flex">
                 <div class="pe-4">
-                    <img src="@if (isset($user->photo)) {{asset('storage/' . $user->photo)}} @else https://i.pravatar.cc/100?u={{$user->id}} @endif"
-                        alt="" class="rounded-circle border-5 border border-light" style="width: 100px; height: 100px;">
+                    <img src="@if (isset($user->photo)) {{asset('storage/' . $user->photo)}} @else https://i.pravatar.cc/100?u={{$user->id}} @endif" alt="" class="rounded-circle border-5 border border-light" style="width: 100px; height: 100px;">
                 </div>
                 <div class="text-white">
                     <p class="text-muted fw-bold fs-6">{{'@' . $user->username}}</p>
@@ -23,10 +22,8 @@
                             anything</label>
                         <button class="btn text-white rounded-3 fw-bold border mx-3">Follow</button>
                         <a href="#" class="text-muted">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" fill="currentColor"
-                                class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                                <path
-                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
                             </svg>
                         </a>
                     </div>
@@ -41,8 +38,7 @@
                                 <a href="/" class="text-decoration-none text-white">Home</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                <a href="/{{$user->username}}"
-                                    class="text-decoration-none text-white">{{'@' . $user->username}}</a>
+                                <a href="/{{$user->username}}" class="text-decoration-none text-white">{{'@' . $user->username}}</a>
                             </li>
                             <li class="breadcrumb-item">
                                 <a href="#" class="text-decoration-none text-muted">Latest</a>
@@ -60,8 +56,7 @@
                 <section class="col-md-4 text-white">
                     <div class="d-md-flex justify-content-between">
                         <div class="d-flex">
-                            <div class="bg-dark d-flex justify-content-center py-2 rounded-circle"
-                                style="width: 41px;height: 41px;">
+                            <div class="bg-dark d-flex justify-content-center py-2 rounded-circle" style="width: 41px;height: 41px;">
                                 💬
                             </div>
                             <div class="mx-3 text-white">
@@ -70,14 +65,13 @@
                             </div>
                         </div>
                         <div class="d-flex">
-                            <div class="bg-dark d-flex justify-content-center py-2 rounded-circle"
-                                style="width: 41px;height: 41px;">
+                            <div class="bg-dark d-flex justify-content-center py-2 rounded-circle" style="width: 41px;height: 41px;">
                                 ❤️
                             </div>
                             <div class="mx-3 text-white">
 
 
-                                <p class="fw-bold"> 9 <br> Likes </p>
+                                <p class="fw-bold" id="like-count"> {{$user->likesCount($user) }} <br> Likes </p>
                             </div>
                         </div>
 
@@ -113,5 +107,6 @@
                 </section>
             </div>
         </div>
+        
     </main>
 </x-layout>
