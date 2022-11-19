@@ -53,9 +53,21 @@ class User extends Authenticatable
         return $this->hasMany(Question::class, 'asker_id')->orderByDesc('created_at')->whereHas('answer');
     }
 
+    public function askedCount()
+    {
+        $total = $this->questionsAsked()->count();
+        return $total;
+    }
+
     public function questionsAnswered()
     {
         return $this->hasMany(Question::class, 'recipient_id')->orderByDesc('created_at')->whereHas('answer') ;
+    }
+
+    public function answeredCount()
+    {
+        $total = $this->questionsAnswered()->count();
+        return $total;
     }
 
     public function answers()

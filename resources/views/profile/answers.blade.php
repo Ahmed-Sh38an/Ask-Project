@@ -41,7 +41,7 @@
                 <p class="border-bottom pb-2">{{$question->answer->body}}</p>
 
                 <!-- Heart -->
-                <button id="btn2" class="btnn" onclick="toggle2({{$question->id}}), '{{csrf_token()}}'><i class=" fa-solid fa-heart fs-3"></i></button>
+                <button id="btn2" class="btnn" onclick="toggle2({{$question->id}}), '{{csrf_token()}}'"><i class="fa-solid fa-heart fs-3"></i></button>
 
                 <!-- fire -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-fire mb-2" viewBox="0 0 16 16">
@@ -70,7 +70,7 @@
                             document.getElementById('like-count').innerHTML = `${result.likes} <br> Likes`
                         }
                     }
-                    xmlhttp.open("POST", "{{$user->username}}/questions/{{$question->id}}/like");
+                    xmlhttp.open("POST", "{{$user->username}}/questions/@if ($user->answeredCount() > 0) {{$question->id}} @else '1' @endif/like");
                     xmlhttp.setRequestHeader("X-CSRF-TOKEN", token);
                     xmlhttp.send();
                 }
@@ -88,7 +88,7 @@
                             }
                         }
                     }
-                    xmlhttp.open("POST", "{{$user->username}}/questions/{{$question->id}}/like");
+                    xmlhttp.open("POST", "{{$user->username}}/questions/@if ($user->askedCount() > 0) {{$question->id}} @else '1' @endif/like");
                     xmlhttp.setRequestHeader("X-CSRF-TOKEN", token);
                     xmlhttp.send();
                 }
